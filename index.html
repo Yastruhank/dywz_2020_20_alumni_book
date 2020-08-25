@@ -48,7 +48,7 @@
     <script src="china.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jq.css">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
@@ -56,14 +56,16 @@
     <div class="col-sm-4">
         <button onclick="Back()">回到大地图</button>
         <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-        <div id="main"></div>
+        <div id="main" class="container"></div>
         <script type="text/javascript">
             $("#main").animate({
                 top: '-=1080px',
                 opacity: '+=1'
             }, 1000);
-            $("#main").width($(window).width());
+
+
             $("#main").height($(window).height());
+
             var classData = [{
                     p: '黑龙江',
                     cd: [127.42, 46.04],
@@ -331,6 +333,9 @@
                 myChart.setOption(startResChart);
                 option = JSON.parse(JSON.stringify(startResChart));
             }
+            $(window).resize(function(){
+                myChart.resize();
+            });
         </script>
     </div>
 </body>
