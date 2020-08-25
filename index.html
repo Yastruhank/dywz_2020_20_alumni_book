@@ -54,7 +54,7 @@
 <body>
 
     <div class="col-sm-4">
-        <button onclick="Back()">回到大地图</button>
+
         <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
         <div id="main" class="container"></div>
         <script type="text/javascript">
@@ -328,15 +328,21 @@
                 myChart.setOption(option);
 
             });
-
-            function Back() {
-                myChart.setOption(startResChart);
+            function test(){
+                console.log(option);
+            }
+            function back() {
                 option = JSON.parse(JSON.stringify(startResChart));
+                myChart.setOption(option,true);
+
             }
             $(window).resize(function(){
                 myChart.resize();
             });
+
         </script>
+        <button onclick="back()" class="btn btn-lg btn-primary">回到大地图</button>
+        <button onclick="test()" class="btn btn-lg btn-primary">测试</button>
     </div>
 </body>
 
