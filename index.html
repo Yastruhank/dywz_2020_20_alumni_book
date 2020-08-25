@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+    <meta charset="utf-8">
+    <title>20班同学录</title>
+    <!-- 引入 echarts.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.7.0/echarts.min.js"></script>
+	<script src="china.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jq.css">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="col-sm-4">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" ></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        $("#main").animate({
+            top:'-=1080px',
+            opacity:'+=1'
+        },1000);
+        $("#main").width($(window).width());
+        $("#main").height($(window).height());
+        var myChart = echarts.init(document.getElementById('main'),'light');
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '相亲相爱一家人'
+            },
+            tooltip: {},
+
+            series: [{
+                type: 'map',
+				map: 'china',
+            }]
+        };
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+</div>
+</body>
+</html>
