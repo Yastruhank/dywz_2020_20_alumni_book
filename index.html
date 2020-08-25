@@ -58,13 +58,11 @@
         <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
         <div id="main" class="container"></div>
         <script type="text/javascript">
+            $("#main").height($(window).height());
             $("#main").animate({
                 top: '-=1080px',
                 opacity: '+=1'
             }, 1000);
-
-
-            $("#main").height($(window).height());
 
             var classData = [{
                     p: '黑龙江',
@@ -73,7 +71,7 @@
                     phone: 18909026790,
                     university: '哈尔滨工业大学',
                     image: 'image://hgd.jpg',
-                    stuNum: 13,
+                    qq: 847072154,
                 }
 
             ];
@@ -87,7 +85,6 @@
                             name: stu.name,
                             value: stu.cd.concat(stu.stuNum),
                             symbol: stu.image,
-                            symbolSize: 50
                         });
                     }
 
@@ -284,21 +281,22 @@
             var startResChart = JSON.parse(JSON.stringify(option));
             myChart.setOption(option);
             myChart.on('click', function(params) {
-                if (params.seriesType == 'scatter') {
-                    var stu;
-                    for (var i = 0; i < classData.length; i++) {
-                        if (classData[i].name == params.name) {
-                            stu = classData[i];
-                            break;
-                        }
-                    }
-                    alert('电话:' + stu.phone + '\n' + '学校:' + stu.university);
-                    return;
-                }
                 if (option.geo.map == 'china') {
                     option.geo.map = params.name;
                     option.series[1] = {
                         type: 'scatter',
+                        tooltip: {
+                            formatter: function(params, ticket, callback) {
+                                var classMate;
+                                for (var i = 0; i < classData.length; i++) {
+                                    if (classData[i].name == params.data.name) {
+                                        classMate = classData[i];
+                                    }
+                                }
+                                return '蹭饭同学:' + classMate.name + '<br />  大学:' + classMate.university + '<br /> 电话:' + classMate.phone + '<br />QQ:' + classMate.qq;
+                            }
+
+                        },
                         coordinateSystem: 'geo',
                         data: convertData(classData, params.name),
                         encode: {
@@ -312,8 +310,7 @@
                             position: 'right',
                             show: false,
                             fontFamily: '仿宋',
-                            fontSize: 26,
-                            color: '#000000',
+                            color: '#FF6600',
                         },
                         itemStyle: {
                             color: '#006F00',
@@ -328,18 +325,19 @@
                 myChart.setOption(option);
 
             });
-            function test(){
+
+            function test() {
                 console.log(option);
             }
+
             function back() {
                 option = JSON.parse(JSON.stringify(startResChart));
-                myChart.setOption(option,true);
+                myChart.setOption(option, true);
 
             }
-            $(window).resize(function(){
+            $(window).resize(function() {
                 myChart.resize();
             });
-
         </script>
         <button onclick="back()" class="btn btn-lg btn-primary">回到大地图</button>
         <button onclick="test()" class="btn btn-lg btn-primary">测试</button>
