@@ -1,47 +1,329 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
-</script>
+    </script>
     <meta charset="utf-8">
     <title>20班同学录</title>
     <!-- 引入 echarts.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.7.0/echarts.min.js"></script>
-	<script src="china.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/4.7.0/echarts.min.js"></script>
+    <script src="js\anhui.js"></script>
+    <script src="js\aomen.js"></script>
+    <script src="js\beijing.js"></script>
+    <script src="js\chongqing.js"></script>
+    <script src="js\fujian.js"></script>
+    <script src="js\gansu.js"></script>
+    <script src="js\guangdong.js"></script>
+    <script src="js\guangxi.js"></script>
+    <script src="js\guizhou.js"></script>
+    <script src="js\hainan.js"></script>
+    <script src="js\hebei.js"></script>
+    <script src="js\heilongjiang.js"></script>
+    <script src="js\henan.js"></script>
+    <script src="js\hubei.js"></script>
+    <script src="js\hunan.js"></script>
+    <script src="js\jiangsu.js"></script>
+    <script src="js\jiangxi.js"></script>
+    <script src="js\jilin.js"></script>
+    <script src="js\liaoning.js"></script>
+    <script src="js\neimenggu.js"></script>
+    <script src="js\ningxia.js"></script>
+    <script src="js\qinghai.js"></script>
+    <script src="js\shandong.js"></script>
+    <script src="js\shanghai.js"></script>
+    <script src="js\shanxi.js"></script>
+    <script src="js\shanxi1.js"></script>
+    <script src="js\sichuan.js"></script>
+    <script src="js\taiwan.js"></script>
+    <script src="js\tianjin.js"></script>
+    <script src="js\xianggang.js"></script>
+    <script src="js\xinjiang.js"></script>
+    <script src="js\xizang.js"></script>
+    <script src="js\yunnan.js"></script>
+    <script src="js\zhejiang.js"></script>
+    <script src="china.js"></script>
+    <script src="china.js"></script>
     <link rel="stylesheet" type="text/css" href="css/jq.css">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
+
 <body>
     <div class="col-sm-4">
-    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-    <div id="main" ></div>
-    <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        $("#main").animate({
-            top:'-=1080px',
-            opacity:'+=1'
-        },1000);
-        $("#main").width($(window).width());
-        $("#main").height($(window).height());
-        var myChart = echarts.init(document.getElementById('main'),'light');
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <div id="main"></div>
+        <script type="text/javascript">
 
-        // 指定图表的配置项和数据
-        var option = {
+    var classData = [
+    	{
+    		p: '黑龙江',
+    		cd: [127.42,46.04],
+    		name: '龙英池',
+    		phone: 18909026790,
+    		university: '哈尔滨工业大学',
+    		image: 'image://hgd.jpg',
+    		stuNum: 13,
+    	}
+
+    ];
+
+    function convertData(data,name) {
+       var res = [];
+       for (var i = 0;i < data.length;i++) {
+    		stu = data[i];
+    		if(stu.p == name){
+    			res.push({
+    				name:stu.name,
+    				value: stu.cd.concat(stu.stuNum),
+    				symbol: stu.image,
+    				symbolSize: 50
+    			});
+    		}
+
+       }
+       return res;
+    };
+          var myChart = echarts.init(document.getElementById('main'));
+
+          // 指定图表的配置项和数据
+          var option = {
             title: {
-                text: '相亲相爱一家人'
+              text: '20班蹭饭地图-----电子备忘录',
+              show: false
             },
             tooltip: {},
 
+            visualMap: {
+              left: 'right',
+              min: 0,
+              max: 20,
+              inRange: {
+                color: ['#ffffbf', '#e0f3f8', '#abd9e9', '#74add1', '#4575b4', '#313695', ]
+              },
+              text: ['High', 'Low'],
+              calculable: true
+            },
+
+    		geo: {
+            map: 'china',
+            roam: false,
+            emphasis:{
+                itemStyle: {
+                    areaColor: '#CCFFFF',
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    shadowBlur: 20,
+                    borderWidth: 0,
+                    shadowColor: 'rgba(0, 0, 0, 0.5)'
+                },
+    			label: {
+    				show: false
+    			}
+            }
+        },
             series: [{
-                type: 'map',
-				map: 'china',
+              name: '可蹭饭人数',
+              type: 'map',
+              geoIndex:0,
+              data: [{
+                name: '河北',
+                value: 9
+              },
+              {
+                name: '山西',
+                value: 9
+              },
+              {
+                name: '辽宁',
+                value: 3
+              },
+              {
+                name: '吉林',
+                value: 7
+              },
+              {
+                name: '黑龙江',
+                value: 8
+              },
+              {
+                name: '江苏',
+                value: 17
+              },
+              {
+                name: '浙江',
+                value: 7
+              },
+              {
+                name: '安徽',
+                value: 14
+              },
+              {
+                name: '福建',
+                value: 8
+              },
+              {
+                name: '江西',
+                value: 19
+              },
+              {
+                name: '山东',
+                value: 12
+              },
+              {
+                name: '河南',
+                value: 13
+              },
+              {
+                name: '湖北',
+                value: 3
+              },
+              {
+                name: '湖南',
+                value: 9
+              },
+              {
+                name: '广东',
+                value: 1
+              },
+              {
+                name: '海南',
+                value: 18
+              },
+              {
+                name: '四川',
+                value: 9
+              },
+              {
+                name: '贵州',
+                value: 3
+              },
+              {
+                name: '云南',
+                value: 13
+              },
+              {
+                name: '陕西',
+                value: 2
+              },
+              {
+                name: '甘肃',
+                value: 16
+              },
+              {
+                name: '青海',
+                value: 5
+              },
+              {
+                name: '台湾',
+                value: 18
+              },
+              {
+                name: '内蒙古',
+                value: 16
+              },
+              {
+                name: '广西',
+                value: 1
+              },
+              {
+                name: '西藏',
+                value: 19
+              },
+              {
+                name: '宁夏',
+                value: 16
+              },
+              {
+                name: '新疆',
+                value: 19
+              },
+              {
+                name: '北京',
+                value: 8
+              },
+              {
+                name: '上海',
+                value: 11
+              },
+              {
+                name: '天津',
+                value: 3
+              },
+              {
+                name: '重庆',
+                value: 15
+              },
+              {
+                name: '香港',
+                value: 0
+              },
+              {
+                name: '澳门',
+                value: 19
+              },
+              {
+                name: '哈尔滨市',
+                value: 10
+              }]
             }]
-        };
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    </script>
-</div>
+          };
+
+          // 使用刚指定的配置项和数据显示图表。
+    	  var startResChart = JSON.parse(JSON.stringify(option));
+          myChart.setOption(option);
+          myChart.on('click',function(params) {
+    		if(params.seriesType == 'scatter'){
+    			var stu;
+    			for(var i = 0;i < classData.length;i++){
+    				if(classData[i].name == params.name){
+    					stu = classData[i];
+    					break;
+    				}
+    			}
+    			alert('电话:'+stu.phone+'\n'+'学校:'+stu.university);
+    			return;
+    		}
+            if(option.geo.map == 'china'){
+    				option.geo.map = params.name;
+    				option.series[1] = {
+    					type: 'scatter',
+    					coordinateSystem: 'geo',
+    					data: convertData(classData,params.name),
+                encode: {
+                  value: 2
+                },
+                symbolSize: 20,
+                symbol: 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z',
+                symbolRotate: 0,
+                label: {
+                    formatter: '{b}',
+                    position: 'right',
+                    show: false,
+    				fontFamily: '仿宋',
+    				fontSize: 26,
+    				color: '#000000',
+                },
+                itemStyle: {
+                    color: '#006F00',
+                },
+                emphasis: {
+                    label: {
+                        show: true
+                    }
+                }
+    			}
+    		}
+            myChart.setOption(option);
+
+          });
+    	  function Back(){
+    		myChart.setOption(startResChart);
+    	  }
+        </script>
+    </div>
 </body>
+
 </html>
