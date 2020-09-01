@@ -7,7 +7,9 @@ $('#title').fadeOut(3000, function() {
     }, 3000);
 });
 
-
+/*
+    TODO: rkd,lfy,lxr,zyf,
+*/
 var classData = [{
         p: '黑龙江',
         cd: [127.42, 46.04],
@@ -44,13 +46,13 @@ var classData = [{
         image: 'image://img/zfy.jpg',
         qq:2120385286
     },
-    { // UNDO image
+    {
         p: '四川',
         cd: [104.005145,30.562814],
         name: '刘羽樊',
         phone: 18161316315,
         university: '四川大学',
-        image: 'image://img/ffwy.jpg',
+        image: 'image://img/lyf.jpg',
         qq:2120385286
     },
     { // UNDO
@@ -62,7 +64,7 @@ var classData = [{
         image: 'image://img/ffwy.jpg',
         qq:2120385286
     },
-    { // UNDO: city
+    {
         p: '福建',
         cd: [118.651759,24.940229],
         name: '王苒蓓',
@@ -101,12 +103,12 @@ var classData = [{
     },
     {
         p: '北京',
-        cd: [116.276079,40.16096],
-        name: '张逸君',
-        phone: 18227154325,
+        cd: [116.176079,40.16096],
+        name: '谢昳旸',
+        phone: 15181016860,
         university: '北京航空航天大学',
-        image: 'image://img/zyj.jpg',
-        qq:3152632593
+        image: 'image://img/xyy.jpg',
+        qq:1277376499
     },
     {
         p: '江苏',
@@ -191,12 +193,93 @@ var classData = [{
     },
     {
         p: '四川',
-        cd: [103.905145,30.662814],
+        cd: [103.905145,30.962814],
         name: '张雨',
         phone: 18284232200,
         university: '四川大学',
         image: 'image://img/zy.jpg',
         qq:2324172846
+    },
+    {
+        p: '陕西',
+        cd: [108.771709,34.039191],
+        name: '赵云飞',
+        phone: 18781091391,
+        university: '西北工业大学',
+        image: 'image://img/zyf.jpg',
+        qq:2651537511
+    },
+    {
+        p: '四川',
+        cd: [103.21401,30.692594],
+        name: '陈梦琪',
+        phone: 15183817701,
+        university: '成都中医药大学',
+        image: 'image://img/cmq.jpg',
+        qq:2603268178
+    },
+    {
+        p: '重庆',
+        cd: [106.305533,29.598859],
+        name: '冉宝宝',
+        phone: 18227112128,
+        university: '重庆大学',
+        image: 'image://img/rbb.jpg',
+        qq:1849871698
+    },
+    {
+        p: '北京',
+        cd: [116.333374,40.009645],
+        name: '房福婉扬',
+        phone: 17341802007,
+        university: '清华大学',
+        image: 'image://img/ffwy.jpg',
+        qq:515612997
+    },
+    {
+        p: '四川',
+        cd: [103.468251,30.910901],
+        name: '许可',
+        phone: 18090796106,
+        university: '四川农业大学',
+        image: 'image://img/xk.jpg',
+        qq:949020896
+    },
+    {
+        p: '湖北',
+        cd: [114.419826,30.518754],
+        name: '刘欣荣',
+        phone: 13309026577,
+        university: '华中科技大学',
+        image: 'image://img/lxr_.jpg',
+        qq:1459036167
+    },
+    {
+        p: '湖北',
+        cd: [114.308533,30.525762],
+        name: '蒋浩洋',
+        phone: 18090779375,
+        university: '中国地质大学（武汉）',
+        image: 'image://img/jhy.jpg',
+        qq:1274890881
+    },
+    {
+        p: '四川',
+        cd: [103.527675,30.687832],
+        name: '吕思勉',
+        phone: 15984948919,
+        university: '西南财经大学',
+        image: 'image://img/lsm.jpg',
+        qq:1577396843
+    },
+    {
+        p: '河北',
+        cd: [115.521395,38.89183],
+        name: '李文轩',
+        phone: 15884283050,
+        university: '华北电力大学',
+        image: 'image://img/lwx.jpg',
+        qq:1060968929
     },
 ];
 
