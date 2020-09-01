@@ -16,8 +16,8 @@ var classData = [{
         name: '龙英池',
         phone: 18909026790,
         university: '哈尔滨工业大学',
-        image: 'image://img/lyc.jpg',
-        qq: 847072154
+        image: 'image://img/hgd.jpg',
+        qq: 847072154,
     },
     {
         p: '上海',
@@ -57,12 +57,12 @@ var classData = [{
     },
     { // UNDO
         p: '辽宁',
-        cd: [123.424477,41.770971],
-        name: '严俊涵',
-        phone: 18280572247,
-        university: '东北大学',
-        image: 'image://img/yjh.jpg',
-        qq:359360997
+        cd: [103.773595,30.72961],
+        name: '严峻韩',
+        phone: 18161316315,
+        university: '四川大学',
+        image: 'image://img/ffwy.jpg',
+        qq:2120385286
     },
     {
         p: '福建',
@@ -281,78 +281,6 @@ var classData = [{
         image: 'image://img/lwx.jpg',
         qq:1060968929
     },
-    {
-        p: '四川',
-        cd: [114.509474,36.861127],
-        name: '曾云峰',
-        phone: '15386673989',
-        university: '电子科技大学',
-        image: 'image://img/zyf_.jpg',
-        qq:2332098852
-        },
-        {
-        p: '四川',
-        cd: [104.153661,30.681403],
-        name: '彭昊',
-        phone: '15283836192',
-        university: '成都理工大学',
-        image: 'image://img/ph.jpg',
-        qq:1971524854
-        },
-        {
-        p: '四川',
-        cd: [104.053661,30.581403],
-        name: '李飞杨',
-        phone: '15282892398',
-        university: '成都理工大学',
-        image: 'image://img/lfy.jpg',
-        qq:2099418442
-        },
-        {
-        p: '四川',
-        cd: [116.413384,39.910925],
-        name: '任凯迪',
-        phone: '15883694317',
-        university: '四川大学',
-        image: 'image://img/rkd.jpg',
-        qq:2693607227
-        },
-        {
-        p: '武汉',
-        cd: [114.248801,30.582115],
-        name: '李欣锐',
-        phone: '15282846131',
-        university: '海军工程大学',
-        image: 'image://img/lxr.jpg',
-        qq:2196428421
-        },
-        {
-        p: '河北',
-        cd: [115.421395,38.99183],
-        name: '王璐',
-        phone: '18981059236',
-        university: '华北电力大学',
-        image: 'image://img/wl.jpg',
-        qq:1398836681
-        },
-        {
-        p: '四川',
-        cd: [104.949003,29.188775],
-        name: '涂吉尔',
-        phone: '18383871942',
-        university: '自贡衡水',
-        image: 'image://img/tje.jpg',
-        qq:1649497289
-        },
-        {
-            p: '浙江',
-            cd: [120.145067,30.29149],
-            name: '王建杰',
-            phone: '15228498017',
-            university: '浙江工商大学',
-            image: 'image://img/wjj.jpg',
-            qq:2514559477
-            },
 ];
 
 function convertData(data, name) {
